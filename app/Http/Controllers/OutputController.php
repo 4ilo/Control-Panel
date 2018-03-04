@@ -53,17 +53,6 @@ class OutputController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  \App\Output  $output
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Output $output)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param  \App\Output  $output
@@ -101,6 +90,32 @@ class OutputController extends Controller
      */
     public function destroy(Output $output)
     {
-        //
+        $output->delete();
+
+        return redirect()->route('output.index');
+    }
+
+    /**
+     * Activate the output
+     * @param Output $output
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function activate(Output $output)
+    {
+        $output->activate();
+
+        return redirect()->back();
+    }
+
+    /**
+     * Disable the output
+     * @param Output $output
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function disable(Output $output)
+    {
+        $output->disable();
+
+        return redirect()->back();
     }
 }

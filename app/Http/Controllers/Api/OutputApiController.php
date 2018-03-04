@@ -81,4 +81,28 @@ class OutputApiController extends Controller
 
         return ['success' => 'true'];
     }
+
+    /**
+     * Activate the output
+     * @param Output $output
+     * @return array
+     */
+    public function activate(Output $output)
+    {
+        $output->activate();
+
+        return ['success' => 'true'];
+    }
+
+    /**
+     * disable the output
+     * @param Output $output
+     * @return array
+     */
+    public function disable(Output $output)
+    {
+        $output->disable();
+
+        return ['success' => 'true'];
+    }
 }

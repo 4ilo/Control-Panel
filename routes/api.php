@@ -15,3 +15,5 @@ use Illuminate\Http\Request;
 
 
 Route::apiResource('output', 'Api\OutputApiController');//->middleware('auth:api');
+Route::get('output/{output}/activate', 'Api\OutputApiController@activate');
+Route::get('output/{output}/disable', 'Api\OutputApiController@disable');

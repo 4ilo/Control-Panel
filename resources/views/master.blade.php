@@ -22,12 +22,15 @@
     <div class="row marginTop">
         <div class="col-sm-2">
             <ul class="list-group">
+                <li class="list-group-item"><h4>Dashboard</h4></li>
+                <li class="list-group-item"><a href="{{ route('home') }}">Home</a></li>
+
                 <li class="list-group-item"><h4>Outputs</h4></li>
                 <li class="list-group-item"><a href="{{ route('output.index') }}">List</a></li>
                 <li class="list-group-item"><a href="{{ route('output.create') }}">Add new</a></li>
             </ul>
         </div>
-        <div class="col-sm-6">
+        <div class="col-sm-10">
             @yield('content')
         </div>
     </div>

@@ -11,9 +11,14 @@
 |
 */
 
-Route::get('/', "AuthController@login");
+Route::redirect('/','login');
+Route::get('login', 'AuthController@login')->name('login');
 Route::post('login', 'AuthController@authenticate')->name('authenticate');
 
 Route::get('home', 'DashboardController@home')->name('home');
 
-Route::resource('output', 'OutputController');
+// Output routes
+Route::resource('output', 'OutputController', ['Except' => ['show','destroy']]);
+Route::get('output/{output}/delete', 'OutputController@destroy')->name('output.destroy');
+Route::get('output/{output}/activate', 'OutputController@activate')->name('output.activate');
+Route::get('output/{output}/disable', "OutputController@disable")->name('output.disable');
