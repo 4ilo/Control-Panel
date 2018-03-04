@@ -11,6 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', "AuthController@login");
+Route::post('login', 'AuthController@authenticate')->name('authenticate');
+
+Route::get('home', 'DashboardController@home')->name('home');
+
+Route::resource('output', 'OutputController');
