@@ -9,6 +9,8 @@
 - [Activate output](#activate-output)
 - [Disable output](#disable-output)
 
+
+
 List outputs
 ----
   Returns json data about all outputs
@@ -62,6 +64,8 @@ List outputs
     ```
    
    
+   
+   
 Create output
 ----
   Create a new output with json data
@@ -110,6 +114,8 @@ Create output
         }
       });
     ```
+    
+    
     
     
  Show output
@@ -164,6 +170,8 @@ Create output
        });
      ```
      
+  
+  
      
 Update output
 ----
@@ -215,6 +223,8 @@ Update output
     ```
     
     
+    
+    
 Delete output
 ----
   Delete a single output
@@ -261,6 +271,8 @@ Delete output
     ```
     
     
+    
+    
 Activate output
 ----
   Activate a single output
@@ -305,6 +317,8 @@ Activate output
         }
       });
     ```
+    
+    
     
     
 Disable output
