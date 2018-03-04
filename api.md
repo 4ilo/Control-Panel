@@ -62,7 +62,7 @@ List outputs
     ```
    
    
-## Create output
+Create output
 ----
   Create a new output with json data
 
@@ -112,7 +112,7 @@ List outputs
     ```
     
     
- ## Show output
+ Show output
  ----
    Returns json data about a single output
  
@@ -165,7 +165,7 @@ List outputs
      ```
      
      
-## Update output
+Update output
 ----
   Update a single output with json data
 
@@ -215,7 +215,7 @@ List outputs
     ```
     
     
-## Delete output
+Delete output
 ----
   Delete a single output
 
@@ -261,7 +261,7 @@ List outputs
     ```
     
     
-# Activate output
+Activate output
 ----
   Activate a single output
 
@@ -307,7 +307,7 @@ List outputs
     ```
     
     
-# Disable output
+Disable output
 ----
   Disable a single output
 
