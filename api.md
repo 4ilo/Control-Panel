@@ -86,8 +86,8 @@ Create output
 
     **Required:**
     
-       `name=[string]`
-       `pin=[integer 0-40]`
+       name=[string]
+       pin=[integer 0-40]
 
 * **Success Response:**
 
@@ -193,8 +193,8 @@ Update output
 
     **Required:**
     
-       `name=[string]`
-       `pin=[integer 0-40]`
+       name=[string]
+       pin=[integer 0-40]
 
 * **Success Response:**
 
