@@ -123,7 +123,8 @@ List outputs
             {
                 "id": 1,
                 "name": "Pump",
-                "pin": 3
+                "pin": 3,
+                "active": false
             }
         ],
         "errors": []
@@ -185,7 +186,8 @@ Create output
         "data": {
             "id": 1,
             "name": "Pump",
-            "pin": 3  
+            "pin": 3,
+            "active": false
         },
         "errors": []
     }
@@ -264,7 +266,8 @@ Create output
         "data": {
             "id": 1,
             "name": "Pump",
-            "pin": 3  
+            "pin": 3,
+            "active": false
         },
         "errors": []
     }
@@ -339,7 +342,8 @@ Update output
         "data": {
             "id": 1,
             "name": "Pump",
-            "pin": 3  
+            "pin": 3,
+            "active": false
         },
         "errors": []
     }
@@ -480,7 +484,8 @@ Activate output
         "data": {
             "id": 1,
             "name": "Pump",
-            "pin": 3 
+            "pin": 3,
+            "active": false
         },
         "errors": []
     }
@@ -552,7 +557,8 @@ Disable output
         "data": {
             "id": 1,
             "name": "Pump",
-            "pin": 3 
+            "pin": 3,
+            "active": false
         },
         "errors": []
     }

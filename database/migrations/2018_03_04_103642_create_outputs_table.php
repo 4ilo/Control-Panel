@@ -17,6 +17,7 @@ class CreateOutputsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->integer('pin');
+            $table->boolean('active')->default(false);
             $table->timestamps();
         });
     }
