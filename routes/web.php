@@ -14,6 +14,7 @@
 Route::redirect('/','login');
 Route::get('login', 'AuthController@login')->name('login');
 Route::post('login', 'AuthController@authenticate')->name('authenticate');
+Route::get('logout', 'AuthController@logout')->name('logout');
 
 Route::get('home', 'DashboardController@home')->name('home');
 

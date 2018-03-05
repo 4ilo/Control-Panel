@@ -10,7 +10,7 @@ class AuthController extends Controller
 
     public function __construct()
     {
-        $this->middleware('guest');
+        $this->middleware('guest', ['except' => 'logout']);
     }
 
     public function login()
@@ -31,6 +31,12 @@ class AuthController extends Controller
         }
 
         return redirect()->back()->withErrors(["error" => "The provided credentials are incorrect."]);
+    }
 
+    public function logout()
+    {
+        Auth::logout();
+
+        return redirect('/');
     }
 }
