@@ -36,19 +36,24 @@ List outputs
     * **Code:** 200 <br />
     **Content:** 
     ```
-    [
-        {
-            id: 12,
-            name: "pump",
-            pin: 1
-        }
-     ]
+    {
+        "status": true,
+        "message": "All results fetched",
+        "data": [
+            {
+                "id": 1,
+                "name": "Pump",
+                "pin": 3
+            }
+        ],
+        "errors": []
+    }
      ```
  
 * **Error Response:**
 
     * **Code:** 401 UNAUTHORIZED <br />
-    **Content:** `{ error : "Log in" }`
+    **Content:** `{ "message": "Unauthenticated." }`
 
 * **Sample Call:**
 
@@ -92,13 +97,43 @@ Create output
 * **Success Response:**
 
     * **Code:** 200 <br />
-    **Content:** `{ 'success': 'true' }`
+    **Content:** 
+    ```
+    {
+        "status": true,
+        "message": "Output created",
+        "data": {
+            "id": 1,
+            "name": "Pump",
+            "pin": 3  
+        },
+        "errors": []
+    }
+    ```
     
  
 * **Error Response:**
 
     * **Code:** 401 UNAUTHORIZED <br />
-    **Content:** `{ error : "Log in" }`
+    **Content:** `{ "message": "Unauthenticated." }`
+
+    * **Code:** 422 Unprocessable Entity <br />
+    **Content**
+    ```
+    {
+        "status": false,
+        "message": "Error while validating request",
+        "data": [],
+        "errors": {
+            "name": [
+                "The name field is required."
+            ],
+            "pin": [
+                "The pin field is required."
+            ]
+        }
+    }
+    ```
     
 
 * **Sample Call:**
@@ -143,19 +178,36 @@ Create output
      * **Code:** 200 <br />
      **Content:** 
      ```
-     {
-         id: 12,
-         name: "pump",
-         pin: 1
-     }
+    {
+        "status": true,
+        "message": "Result fetched",
+        "data": {
+            "id": 1,
+            "name": "Pump",
+            "pin": 3  
+        },
+        "errors": []
+    }
      ```
      
   
  * **Error Response:**
  
-     * **Code:** 401 UNAUTHORIZED <br />
-     **Content:** `{ error : "Log in" }`
-     
+    * **Code:** 401 UNAUTHORIZED <br />
+    **Content:** `{ "message": "Unauthenticated." }`
+
+    * **Code:** 404 Not Found <br />
+    **Content:**
+    ```
+    {
+        "status": false,
+        "message": "Output not found",
+        "data": [],
+        "errors": [
+            "Output not found"
+        ]
+    }
+    ```
  
  * **Sample Call:**
  
@@ -199,14 +251,38 @@ Update output
 * **Success Response:**
 
     * **Code:** 200 <br />
-    **Content:** `{ 'success': 'true' }`
+    **Content:** 
+    ```
+    {
+        "status": true,
+        "message": "Output updated",
+        "data": {
+            "id": 1,
+            "name": "Pump",
+            "pin": 3  
+        },
+        "errors": []
+    }
+    ```
     
  
 * **Error Response:**
 
     * **Code:** 401 UNAUTHORIZED <br />
-    **Content:** `{ error : "Log in" }`
-    
+    **Content:** `{ "message": "Unauthenticated." }`
+
+    * **Code:** 404 Not Found <br />
+    **Content:**
+    ```
+    {
+        "status": false,
+        "message": "Output not found",
+        "data": [],
+        "errors": [
+            "Output not found"
+        ]
+    }
+    ```
 
 * **Sample Call:**
 
@@ -248,14 +324,34 @@ Delete output
 * **Success Response:**
 
     * **Code:** 200 <br />
-    **Content:** `{ 'success': 'true' }`
+    **Content:** 
+    ```
+    {
+        "status": true,
+        "message": "Output deleted",
+        "data": [],
+        "errors": []
+    }
+    ```
     
  
 * **Error Response:**
 
     * **Code:** 401 UNAUTHORIZED <br />
-    **Content:** `{ error : "Log in" }`
-    
+    **Content:** `{ "message": "Unauthenticated." }`
+
+    * **Code:** 404 Not Found <br />
+    **Content:**
+    ```
+    {
+        "status": false,
+        "message": "Output not found",
+        "data": [],
+        "errors": [
+            "Output not found"
+        ]
+    }
+    ```
 
 * **Sample Call:**
 
@@ -296,14 +392,38 @@ Activate output
 * **Success Response:**
 
     * **Code:** 200 <br />
-    **Content:** `{ 'success': 'true' }`
+    **Content:** 
+    ```
+    {
+        "status": true,
+        "message": "Output activated",
+        "data": {
+            "id": 1,
+            "name": "Pump",
+            "pin": 3 
+        },
+        "errors": []
+    }
+    ```
     
  
 * **Error Response:**
 
     * **Code:** 401 UNAUTHORIZED <br />
-    **Content:** `{ error : "Log in" }`
-    
+    **Content:** `{ "message": "Unauthenticated." }`
+
+    * **Code:** 404 Not Found <br />
+    **Content:**
+    ```
+    {
+        "status": false,
+        "message": "Output not found",
+        "data": [],
+        "errors": [
+            "Output not found"
+        ]
+    }
+    ```    
 
 * **Sample Call:**
 
@@ -344,13 +464,38 @@ Disable output
 * **Success Response:**
 
     * **Code:** 200 <br />
-    **Content:** `{ 'success': 'true' }`
+    **Content:**
+    ```
+    {
+        "status": true,
+        "message": "Output disabled",
+        "data": {
+            "id": 1,
+            "name": "Pump",
+            "pin": 3 
+        },
+        "errors": []
+    }
+    ```
     
  
 * **Error Response:**
 
     * **Code:** 401 UNAUTHORIZED <br />
-    **Content:** `{ error : "Log in" }`
+    **Content:** `{ "message": "Unauthenticated." }`
+    
+    * **Code:** 404 Not Found <br />
+    **Content:**
+    ```
+    {
+        "status": false,
+        "message": "Output not found",
+        "data": [],
+        "errors": [
+            "Output not found"
+        ]
+    }
+    ```
     
 
 * **Sample Call:**
