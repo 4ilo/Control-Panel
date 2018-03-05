@@ -1,6 +1,7 @@
 # Api documentation
 ### Available methods
 
+- [Authorisation](#authorisation)
 - [List outputs](#list-outputs)
 - [Create output](#create-output)
 - [Show output](#show-output)
@@ -9,6 +10,85 @@
 - [Activate output](#activate-output)
 - [Disable output](#disable-output)
 
+Request headers
+---
+  Include with every request these headers:
+  ```
+  Accept: application/json
+  Authorization: Bearer <accessToken>
+  ```
+
+Authorisation
+---
+  Get user accessToken
+
+- **URL**
+
+/api/login
+
+- **Method:**
+
+`POST`
+
+- **URL Params**
+
+  None
+
+- **Data Params**
+
+  **Required:**
+      
+        username=[string]
+        password=[string]
+
+* **Success Response:**
+
+  * **Code:** 200 <br />
+  **Content:** 
+  ```
+    {
+        "status": true,
+        "message": "User verified.",
+        "data": {
+            "accessToken": "abcdefgh"
+        },
+        "errors": []
+    }
+   ```
+
+* **Error Response:**
+
+  * **Code:** 422 Unprocessable Entity <br />
+  **Content:** 
+  ```
+  {
+      "status": false,
+      "message": "Error while validating request",
+      "data": [],
+      "errors": {
+          "username": [
+              "The username field is required."
+          ],
+          "password": [
+              "The password field is required."
+          ]
+      }
+  }
+  ```
+
+* **Sample Call:**
+
+  ```
+    $.ajax({
+      url: "/api/login",
+      dataType: "json",
+      type : "POST",
+      data: { username: "user", password: 'pass' }
+      success : function(r) {
+        console.log(r);
+      }
+    });
+  ```
 
 
 List outputs
