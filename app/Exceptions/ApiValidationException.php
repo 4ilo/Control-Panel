@@ -6,7 +6,6 @@ use Exception;
 
 class ApiValidationException extends Exception
 {
-
     private $errors;
 
     public function __construct($errors)
@@ -24,5 +23,10 @@ class ApiValidationException extends Exception
         ];
 
         return response($response, 422);
+    }
+    
+    public function report()
+    {
+        
     }
 }

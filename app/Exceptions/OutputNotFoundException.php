@@ -17,4 +17,9 @@ class OutputNotFoundException extends Exception
 
         return response($response, 404);
     }
+
+    public function report()
+    {
+
+    }
 }
