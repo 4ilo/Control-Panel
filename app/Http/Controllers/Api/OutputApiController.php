@@ -213,6 +213,6 @@ class OutputApiController extends Controller
         if(!$output)
             throw new OutputNotFoundException();
 
-        return $output->first();
+        return $output;
     }
 }
