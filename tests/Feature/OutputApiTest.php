@@ -25,6 +25,8 @@ class OutputApiTest extends TestCase
     public function unauthenticated_users_cant_access_the_api()
     {
         $response = $this->get('/api/output');
+    
+        dd($response);
         
         $response->assertStatus(302);
     }
