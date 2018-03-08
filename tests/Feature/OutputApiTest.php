@@ -26,7 +26,7 @@ class OutputApiTest extends TestCase
     {
         $response = $this->json('GET', '/api/output');
         
-        $response->assertStatus(302);
+        $response->assertStatus(401);
     }
     
     /** @test */
