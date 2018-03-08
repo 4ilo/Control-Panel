@@ -15,7 +15,7 @@ use Illuminate\Http\Request;
 
 
 Route::apiResource('output', 'Api\OutputApiController');
-Route::get('output/{output}/activate', 'Api\OutputApiController@activate');
+Route::get('output/{output}/enable', 'Api\OutputApiController@enable');
 Route::get('output/{output}/disable', 'Api\OutputApiController@disable');
 
 Route::post('login', 'Api\OutputApiController@getAccessToken');

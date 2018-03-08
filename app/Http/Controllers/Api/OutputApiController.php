@@ -171,16 +171,16 @@ class OutputApiController extends Controller
     }
 
     /**
-     * Activate the output
+     * Enable the output
      * @param Output $output
      * @return array
      * @throws OutputNotFoundException
      */
-    public function activate($output)
+    public function enable($output)
     {
         $output = $this->findOutput($output);
 
-        $output->activate();
+        $output->enable();
 
         return $this->apiResponse("Output activated", $output);
     }

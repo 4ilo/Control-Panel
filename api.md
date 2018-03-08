@@ -7,7 +7,7 @@
 - [Show output](#show-output)
 - [Update output](#update-output)
 - [Delete output](#delete-output)
-- [Activate output](#activate-output)
+- [Enable output](#enable-output)
 - [Disable output](#disable-output)
 
 Request headers
@@ -453,13 +453,13 @@ Delete output
     
     
     
-Activate output
+Enable output
 ----
   Activate a single output
 
 - **URL**
 
-  /api/output/:id/activate
+  /api/output/:id/enable
 
 - **Method:**
   
@@ -480,7 +480,7 @@ Activate output
     ```
     {
         "status": true,
-        "message": "Output activated",
+        "message": "Output enabled",
         "data": {
             "id": 1,
             "name": "Pump",
@@ -514,7 +514,7 @@ Activate output
 
     ```
       $.ajax({
-        url: "/api/output/1/activate",
+        url: "/api/output/1/enable",
         dataType: "json",
         type : "GET",
         success : function(r) {

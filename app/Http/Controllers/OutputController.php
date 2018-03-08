@@ -85,8 +85,9 @@ class OutputController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Output  $output
+     * @param  \App\Output $output
      * @return \Illuminate\Http\Response
+     * @throws \Exception
      */
     public function destroy(Output $output)
     {
@@ -96,13 +97,13 @@ class OutputController extends Controller
     }
 
     /**
-     * Activate the output
+     * Enable the output
      * @param Output $output
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function activate(Output $output)
+    public function enable(Output $output)
     {
-        $output->activate();
+        $output->enable();
 
         return redirect()->back();
     }

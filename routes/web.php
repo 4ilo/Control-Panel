@@ -21,5 +21,5 @@ Route::get('home', 'DashboardController@home')->name('home');
 // Output routes
 Route::resource('output', 'OutputController', ['Except' => ['show','destroy']]);
 Route::get('output/{output}/delete', 'OutputController@destroy')->name('output.destroy');
-Route::get('output/{output}/activate', 'OutputController@activate')->name('output.activate');
+Route::get('output/{output}/enable', 'OutputController@enable')->name('output.enable');
 Route::get('output/{output}/disable', "OutputController@disable")->name('output.disable');

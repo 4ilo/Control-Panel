@@ -10,7 +10,7 @@ class Output extends Model
     protected $hidden = ['created_at', 'updated_at'];
     protected $casts = ['active' => 'boolean'];
 
-    public function activate()
+    public function enable()
     {
         $this->active = true;
         $this->save();

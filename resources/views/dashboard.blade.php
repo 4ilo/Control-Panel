@@ -19,8 +19,8 @@
                         </div>
 
                         <div class="card-body">
-                            <a href="{{ route('output.activate', $output) }}" class="btn btn-success float-left">
-                                Activate
+                            <a href="{{ route('output.enable', $output) }}" class="btn btn-success float-left">
+                                Enable
                             </a>
                             <a href="{{ route('output.disable', $output) }}" class="btn btn-danger float-right">
                                 Disable
