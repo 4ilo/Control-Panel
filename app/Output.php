@@ -8,7 +8,7 @@ class Output extends Model
 {
     protected $fillable = ['name', 'pin'];
     protected $hidden = ['created_at', 'updated_at'];
-    protected $casts = ['active' => 'boolean'];
+    protected $casts = ['active' => 'boolean', 'pin' => 'integer'];
 
     public function enable()
     {
