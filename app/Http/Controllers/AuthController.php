@@ -10,14 +10,24 @@ class AuthController extends Controller
 
     public function __construct()
     {
-        $this->middleware('guest', ['except' => 'logout']);
+        $this->middleware('guest', ['except' => ['logout', 'home']]);
+        $this->middleware('auth', ['only' => ['logout', 'home']]);
     }
-
+    
+    /**
+     * Show the login form
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function login()
     {
         return view("login");
     }
-
+    
+    /**
+     * Authenticate the user
+     * @param Request $request
+     * @return $this|\Illuminate\Http\RedirectResponse
+     */
     public function authenticate(Request $request)
     {
         $request->validate([
@@ -32,7 +42,16 @@ class AuthController extends Controller
 
         return redirect()->back()->withErrors(["error" => "The provided credentials are incorrect."]);
     }
-
+    
+    public function home()
+    {
+        return view('home');
+    }
+    
+    /**
+     * Logout the user
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
     public function logout()
     {
         Auth::logout();

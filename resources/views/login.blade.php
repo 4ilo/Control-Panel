@@ -7,12 +7,6 @@
 
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 
-    <style type="text/css">
-        .marginTop {
-            margin-top: 100px;
-        }
-    </style>
-
 </head>
 <body>
 
@@ -45,6 +39,5 @@
     </div>
 </div>
 
-{{--<script src="{{ mix('js/app.js') }}"></script>--}}
 </body>
 </html>

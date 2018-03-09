@@ -91,6 +91,22 @@ class OutputApiTest extends TestCase
     }
     
     /** @test */
+    public function a_output_pin_can_only_be_assigned_once()
+    {
+        Passport::actingAs(factory(User::class)->create());
+        $output = factory(Output::class)->create(['pin' => '5']);
+        
+        $response = $this->json('POST', 'api/output', [
+            'name' => 'outputname',
+            'pin' => 5
+        ]);
+        
+        $response->assertStatus(422);
+        
+        $this->assertCount(1, Output::all());
+    }
+    
+    /** @test */
     public function a_single_output_can_be_fetched()
     {
         Passport::actingAs(factory(User::class)->create());
@@ -123,6 +139,23 @@ class OutputApiTest extends TestCase
         
         $this->assertEquals('newname', $output->fresh()->name);
         $this->assertEquals(1, $output->fresh()->pin);
+    }
+    
+    /** @test */
+    public function a_existing_output_pin_cannot_be_asigned_when_updating()
+    {
+        Passport::actingAs(factory(User::class)->create());
+        $output1 = factory(Output::class)->create(['pin' => '5']);
+        $output2 = factory(Output::class)->create(['pin' => '10']);
+        
+        $response = $this->json('PATCH', 'api/output/' . $output2->id, [
+            'name' => $output2->name,
+            'pin' => 5
+        ]);
+        
+        $response->assertStatus(422);
+        
+        $this->assertEquals(10, $output2->fresh()->pin);
     }
     
     /** @test */

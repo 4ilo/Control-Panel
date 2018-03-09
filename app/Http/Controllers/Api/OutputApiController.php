@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Exceptions\ApiValidationException;
 use App\Exceptions\OutputNotFoundException;
+use Illuminate\Validation\Rule;
 
 class OutputApiController extends Controller
 {
@@ -113,7 +114,7 @@ class OutputApiController extends Controller
     {
         $this->apiValidate($request, [
             'name' => 'required',
-            'pin' => 'required|integer|between:0,40',
+            'pin' => 'required|integer|between:0,40|unique:outputs,pin',
         ]);
 
         $output = Output::create($request->only(['name', 'pin']));
@@ -146,7 +147,10 @@ class OutputApiController extends Controller
 
         $this->apiValidate($request, [
             'name' => 'required',
-            'pin' => 'required|integer|between:0,40',
+            'pin' => [
+                'required', 'integer', 'between:0,40',
+                Rule::unique('outputs')->ignore($output->id),
+            ]
         ]);
 
         $output->update($request->only(['name', 'pin']));
@@ -181,8 +185,8 @@ class OutputApiController extends Controller
         $output = $this->findOutput($output);
 
         $output->enable();
-
-        return $this->apiResponse("Output activated", $output);
+    
+        return $this->apiResponse("Output enabled", $output);
     }
 
     /**
