@@ -19,3 +19,5 @@ Route::get('output/{output}/enable', 'Api\OutputApiController@enable');
 Route::get('output/{output}/disable', 'Api\OutputApiController@disable');
 
 Route::post('login', 'Api\OutputApiController@getAccessToken');
+
+Route::options('*', 'Api\OutputApiController@options');

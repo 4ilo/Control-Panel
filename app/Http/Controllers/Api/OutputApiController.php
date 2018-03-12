@@ -219,4 +219,9 @@ class OutputApiController extends Controller
 
         return $output;
     }
+    
+    public function options()
+    {
+        return response('');
+    }
 }
