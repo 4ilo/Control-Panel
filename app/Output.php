@@ -9,21 +9,63 @@ class Output extends Model
     protected $fillable = ['name', 'pin'];
     protected $hidden = ['created_at', 'updated_at'];
     protected $casts = ['active' => 'boolean', 'pin' => 'integer'];
-
+    
+    /**
+     *  Enable the pins output
+     */
     public function enable()
     {
-        $this->active = true;
-        $this->save();
+        if (\App::environment('production'))
+        {
+            shell_exec('gpio -g write ' . $this->pin . ' 1');
+        }
+        else
+        {
+            $this->active = TRUE;
+            $this->save();
+        }
     }
-
+    
+    /**
+     *  Disable the pin's output
+     */
     public function disable()
     {
-        $this->active = false;
-        $this->save();
+        if (\App::environment('production'))
+        {
+            shell_exec('gpio -g write ' . $this->pin . ' 0');
+        }
+        else
+        {
+            $this->active = FALSE;
+            $this->save();
+        }
+        
     }
-
-    public function state()
+    
+    /**
+     *  Set the gpio pin's mode to output
+     */
+    public function setPinMode()
     {
-        return $this->active;
+        if (\App::environment('production'))
+        {
+            shell_exec('gpio -g mode ' . $this->pin . ' out');
+        }
+    }
+    
+    /**
+     * Get the pins output value
+     * @return bool
+     */
+    public function getActiveAttribute()
+    {
+        if (\App::environment('production'))
+        {
+            $state = shell_exec('gpio -g read ' . $this->pin);
+            return (bool)$state;
+        }
+    
+        return $this->state;
     }
 }

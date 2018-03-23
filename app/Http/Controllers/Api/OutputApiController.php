@@ -118,6 +118,7 @@ class OutputApiController extends Controller
         ]);
 
         $output = Output::create($request->only(['name', 'pin']));
+        $output->setPinMode();
 
         return $this->apiResponse("Output created", $output);
     }
@@ -154,6 +155,7 @@ class OutputApiController extends Controller
         ]);
 
         $output->update($request->only(['name', 'pin']));
+        $output->setPinMode();
 
         return $this->apiResponse('Output updated', $output);
     }
