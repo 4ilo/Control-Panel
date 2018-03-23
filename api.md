@@ -355,6 +355,24 @@ Update output
     * **Code:** 401 UNAUTHORIZED <br />
     **Content:** `{ "message": "Unauthenticated." }`
 
+    * **Code:** 422 Unprocessable Entity <br />
+    **Content**
+    ```
+    {
+        "status": false,
+        "message": "Error while validating request",
+        "data": [],
+        "errors": {
+            "name": [
+                "The name field is required."
+            ],
+            "pin": [
+                "The pin field is required."
+            ]
+        }
+    }
+    ```
+
     * **Code:** 404 Not Found <br />
     **Content:**
     ```
