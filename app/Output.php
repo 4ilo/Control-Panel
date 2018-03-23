@@ -65,7 +65,7 @@ class Output extends Model
             $state = shell_exec('gpio -g read ' . $this->pin);
             return (int)$state;
         }
-    
-        return $value;
+        
+        return boolval((int)$value);
     }
 }
