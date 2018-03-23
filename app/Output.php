@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class Output extends Model
 {
@@ -47,7 +48,7 @@ class Output extends Model
         {
             shell_exec('gpio -g mode ' . $this->pin . ' out');
     
-            if (Output::where('pin', $this->pin)->value('active'))
+            if (DB::table('outputs')->where('pin', $this->pin)->value('active'))
             {
                 $this->enable();
             }
