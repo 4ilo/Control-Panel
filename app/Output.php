@@ -63,7 +63,7 @@ class Output extends Model
         if (\App::environment('production'))
         {
             $state = shell_exec('gpio -g read ' . $this->pin);
-            return (bool)$state;
+            return boolval($state);
         }
     
         return $this->state;
