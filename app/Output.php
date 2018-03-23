@@ -19,11 +19,9 @@ class Output extends Model
         {
             shell_exec('gpio -g write ' . $this->pin . ' 1');
         }
-        else
-        {
-            $this->active = TRUE;
-            $this->save();
-        }
+    
+        $this->active = TRUE;
+        $this->save();
     }
     
     /**
@@ -35,12 +33,9 @@ class Output extends Model
         {
             shell_exec('gpio -g write ' . $this->pin . ' 0');
         }
-        else
-        {
-            $this->active = FALSE;
-            $this->save();
-        }
-        
+    
+        $this->active = FALSE;
+        $this->save();
     }
     
     /**
@@ -51,6 +46,11 @@ class Output extends Model
         if (\App::environment('production'))
         {
             shell_exec('gpio -g mode ' . $this->pin . ' out');
+    
+            if (Output::where('pin', $this->pin)->value('active'))
+            {
+                $this->enable();
+            }
         }
     }
     
