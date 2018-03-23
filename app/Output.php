@@ -58,14 +58,14 @@ class Output extends Model
      * Get the pins output value
      * @return bool
      */
-    public function getActiveAttribute()
+    public function getActiveAttribute($value)
     {
         if (\App::environment('production'))
         {
             $state = shell_exec('gpio -g read ' . $this->pin);
-            return boolval($state);
+            return (int)$state;
         }
     
-        return $this->state;
+        return $value;
     }
 }
