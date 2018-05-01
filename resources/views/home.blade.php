@@ -19,7 +19,7 @@
                 </button>
             </div>
 
-            <ul class="list-group" :class="{'d-none': showMenu}">
+            <ul class="list-group" :class="{'d-none d-sm-block': showMenu}">
                 <li class="list-group-item"><h4>Dashboard</h4></li>
 
                 <router-link to="/" tag="li" class="list-group-item" exact>
